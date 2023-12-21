@@ -3,6 +3,7 @@
 2. [Map & Lambda](#schema2)
 3. [Reading & Writing Data](#schema3)
 4. [Data Wranglign](#schema4)
+5. [Quiz Data Wrangling with DataFrames](#schema5)
 
 <hr>
 <a name='schema1'></a>
@@ -75,3 +76,26 @@ df_csv = spark.read.csv("../data/output.csv",header = True, inferSchema = True)
 ## 4. Data Wranglign
 
 data_wrangling.py
+
+<hr>
+<a name='schema5'></a>
+
+## 5. Quiz Data Wrangling with DataFrames
+
+quiz_data_wrangling_with_dataframes.py
+
+```
+df.filter(df.page == 'NextSong').select('artist').groupBy('artists').agg({'artist':'count'})\
+.withColumnRenamed('count(artist)', 'PlayCount').sort(desc('Playcount')).show(1)
+```
+
+- agg
+Ejemplo de agg `df.agg({'Sales':'sum'}).show()`, está en el formato de agregación mediante 
+un diccionario donde las claves son los nombres de las columnas y los valores son las funciones de agregación 
+que deseas aplicar a esas columnas.
+
+Sin embargo, es importante mencionar que la sintaxis de agg con un diccionario en PySpark requiere que uses 
+la función `pyspark.sql.functions`  para definir las operaciones de agregación.
+
+Recuerda que el resultado de agg es un DataFrame con una sola fila, por lo que puedes usar `show()` 
+para imprimir los resultados
