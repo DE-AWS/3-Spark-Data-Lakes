@@ -34,7 +34,6 @@ rdd_song_lower_case.py
 
 ## 3. Reading & Writing Data
 
-
 ```
 spark.sparkContext.getConf().getAll()
 ```
@@ -59,3 +58,14 @@ configuradas para tu aplicación Spark, lo cual puede ser útil para verificar l
 Esto puede incluir configuraciones predeterminadas, así como configuraciones que hayas establecido explícitamente en 
 tu código. Puedes imprimir o analizar esta lista para obtener información detallada sobre la configuración de Spark en 
 tu aplicación.
+
+
+Save it into a different format, for example, into a CSV file, with the write.save() method
+```
+df.write.mode("overwrite").save("../data/output.csv", format="csv", header=True)
+```
+
+Use the read.csv method
+```
+df_csv = spark.read.csv("../data/output.csv",header = True, inferSchema = True)
+```
