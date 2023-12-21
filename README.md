@@ -2,7 +2,7 @@
 1. [Exercise mapreduce](#schema1)
 2. [Map & Lambda](#schema2)
 3. [Reading & Writing Data](#schema3)
-
+4. [Data Wranglign](#schema4)
 
 <hr>
 <a name='schema1'></a>
@@ -69,3 +69,9 @@ Use the read.csv method
 ```
 df_csv = spark.read.csv("../data/output.csv",header = True, inferSchema = True)
 ```
+<hr>
+<a name='schema4'></a>
+
+## 4. Data Wranglign
+
+data_wrangling.py
