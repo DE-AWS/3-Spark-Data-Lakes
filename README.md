@@ -1,6 +1,7 @@
 # 3-Spark-Data-Lakes
 1. [Exercise mapreduce](#schema1)
 2. [Map & Lambda](#schema2)
+3. [Reading & Writing Data](#schema3)
 
 
 <hr>
@@ -27,3 +28,34 @@ Use lambda functions instead of named functions to do the same map operation
 lower_song_lambda = song_log_rdd.map(lambda song: song.lower())
 ```
 rdd_song_lower_case.py
+
+<hr>
+<a name='schema3'></a>
+
+## 3. Reading & Writing Data
+
+
+```
+spark.sparkContext.getConf().getAll()
+```
+
+El código spark.sparkContext.getConf().getAll() en PySpark se utiliza para obtener todas las configuraciones asociadas 
+con el contexto de Spark. Aquí hay una explicación detallada de cada parte:
+
+- spark: Es una instancia de SparkSession, que es la entrada principal para interactuar con Spark en el contexto de SQL 
+y DataFrame.
+
+- sparkContext: Es el contexto de Spark asociado con la instancia de SparkSession. El SparkContext es responsable de 
+la conexión con el clúster de Spark y de la coordinación de las operaciones.
+
+- getConf(): Es un método del SparkContext que devuelve un objeto SparkConf. SparkConf es la clase que contiene 
+la configuración de Spark, incluyendo las configuraciones del clúster, la aplicación, y otras opciones de configuración.
+
+- getAll(): Es un método del objeto SparkConf que devuelve todas las configuraciones presentes en ese objeto 
+como una lista de pares clave-valor.
+
+En resumen, spark.sparkContext.getConf().getAll() te proporcionará una lista de todas las configuraciones actualmente 
+configuradas para tu aplicación Spark, lo cual puede ser útil para verificar la configuración en tiempo de ejecución. 
+Esto puede incluir configuraciones predeterminadas, así como configuraciones que hayas establecido explícitamente en 
+tu código. Puedes imprimir o analizar esta lista para obtener información detallada sobre la configuración de Spark en 
+tu aplicación.
