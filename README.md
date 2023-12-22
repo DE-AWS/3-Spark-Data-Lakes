@@ -115,13 +115,15 @@ different type of functions and their potential pitfalls.
 **General functions**
 We have used the following general functions that are quite similar to methods of pandas dataframes:
 
-`select()`: returns a new DataFrame with the selected columns
-`filter()`: filters rows using the given condition
-`where()`: is just an alias for filter()
-`groupBy()`: groups the DataFrame using the specified columns, so we can run aggregation on them
-`sort()`: returns a new DataFrame sorted by the specified column(s). By default the second parameter 'ascending' is True.
-`dropDuplicates()`: returns a new DataFrame with unique rows based on all or just a subset of columns
-`withColumn()`: returns a new DataFrame by adding a column or replacing the existing column that has the same name. 
+
+- `select()`: returns a new DataFrame with the selected columns
+- `filter()`: filters rows using the given condition
+- `where()`: is just an alias for filter()
+- `groupBy()`: groups the DataFrame using the specified columns, so we can run aggregation on them
+- `sort()`: returns a new DataFrame sorted by the specified column(s). By default the second parameter 'ascending' 
+is True.
+- `dropDuplicates()`: returns a new DataFrame with unique rows based on all or just a subset of columns
+- `withColumn()`: returns a new DataFrame by adding a column or replacing the existing column that has the same name. 
 The first parameter is the name of the new column, the second is an expression of how to compute it.
 
 **Aggregate functions**
@@ -143,4 +145,4 @@ explicitly do so by using the different types from the pyspark.sql.types module.
 **Window functions**
 Window functions are a way of combining the values of ranges of rows in a DataFrame. When defining the window we 
 can choose how to sort and group (with the partitionBy method) the rows and how wide of a window we'd like to use 
-(described by rangeBetween or rowsBetween).
+(described by `rangeBetween` or `rowsBetween`).
