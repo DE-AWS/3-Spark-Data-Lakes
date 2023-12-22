@@ -5,6 +5,7 @@
 4. [Data Wranglign](#schema4)
 5. [Quiz Data Wrangling with DataFrames](#schema5)
 6. [Data Wrangling with DataFrames Extra Tips](#schema6)
+7. [Spark SQL](#schema7)
 
 <hr>
 <a name='schema1'></a>
@@ -146,3 +147,37 @@ explicitly do so by using the different types from the pyspark.sql.types module.
 Window functions are a way of combining the values of ranges of rows in a DataFrame. When defining the window we 
 can choose how to sort and group (with the partitionBy method) the rows and how wide of a window we'd like to use 
 (described by `rangeBetween` or `rowsBetween`).
+
+
+
+<hr>
+<a name='schema7'></a>
+
+## 7. Spark SQL
+
+
+- Create a view to use with your SQL queries
+
+```
+df.createOrReplaceTempView("user_log_table")
+```
+
+- First query
+```
+spark.sql("SELECT * from user_log_table LIMIT 2").show()
+```
+
+```
+
++-------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+--------------------+------+-------------+--------------------+------+
+|       artist|     auth|firstName|gender|itemInSession|lastName|   length|level|            location|method|    page| registration|sessionId|                song|status|           ts|           userAgent|userId|
++-------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+--------------------+------+-------------+--------------------+------+
+|Showaddywaddy|Logged In|  Kenneth|     M|          112|Matthews|232.93342| paid|Charlotte-Concord...|   PUT|NextSong|1509380319284|     5132|Christmas Tears W...|   200|1513720872284|"Mozilla/5.0 (Win...|  1046|
+|   Lily Allen|Logged In|Elizabeth|     F|            7|   Chase|195.23873| free|Shreveport-Bossie...|   PUT|NextSong|1512718541284|     5027|       Cheryl Tweedy|   200|1513720878284|"Mozilla/5.0 (Win...|  1000|
++-------------+---------+---------+------+-------------+--------+---------+-----+--------------------+------+--------+-------------+---------+--------------------+------+-------------+--------------------+------+
+
+```
+
+
+
+
