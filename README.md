@@ -2,7 +2,7 @@
 1. [Exercise mapreduce](#schema1)
 2. [Map & Lambda](#schema2)
 3. [Reading & Writing Data](#schema3)
-4. [Data Wranglign](#schema4)
+4. [Data Wrangling](#schema4)
 5. [Quiz Data Wrangling with DataFrames](#schema5)
 6. [Data Wrangling with DataFrames Extra Tips](#schema6)
 7. [Spark SQL](#schema7)
@@ -75,7 +75,7 @@ df_csv = spark.read.csv("../data/output.csv",header = True, inferSchema = True)
 <hr>
 <a name='schema4'></a>
 
-## 4. Data Wranglign
+## 4. Data Wrangling
 
 data_wrangling.py
 
